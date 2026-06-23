@@ -1,1 +1,62 @@
-{}
+{
+  "rsi": {
+    "verdict": "strong",
+    "best_node": "rsi_14",
+    "key_finding": "Overbought (RSI >91.87) → +26pp at +6h; momentum continuation across all horizons. rsi_10 similar. rsi_spread_7_14 weaker.",
+    "notes": "Pure momentum continuation — no mean-reversion. Contrast with BTC daily where RSI shows mixed intraday/longer-term behavior."
+  },
+  "ma": {
+    "verdict": "strong",
+    "best_node": "ma_cross_10_50",
+    "key_finding": "ma_cross_10_50 below zero (price < 10MA < 50MA) → +27pp at +24h. ma_ratio_20 >0.025 → +18.5pp at +24h. All signals show momentum continuation.",
+    "notes": "Price above MA = bullish continuation; below MA = bearish regime but recovers strongly at +24h. ma_ratio_50 weakest."
+  },
+  "macd": {
+    "verdict": "strong",
+    "best_node": "macd_12_26",
+    "key_finding": "macd_12_26 above >0.0112 → +11.2, +20.5, +20.1, +33.0pp (exceptional all-horizons momentum). Below <-0.01187 → recovery: +10.3, +18.7, +27.2pp at +6h/+12h/+24h.",
+    "notes": "macd_6_13 also strong (all 4 horizons ≥10pp). macd_histogram noisier — faster histogram (6/13) shows only +3h bearish spike. The MACD line itself is the signal."
+  },
+  "roc": {
+    "verdict": "weak",
+    "best_node": "roc_6",
+    "key_finding": "roc_6 below <-0.029 → +11.8, +10.0pp at +6h/+12h (borderline consecutive). roc_1 and roc_12 no edge. roc_3 only a single-horizon crash signal.",
+    "notes": "ROC captures some short-horizon recovery from steep drops but not robustly consecutive. MACD and RSI fully dominate momentum space."
+  },
+  "volatility": {
+    "verdict": "strong",
+    "best_node": "realized_vol_24",
+    "key_finding": "Low vol compression is the strongest bearish signal: realized_vol_24 <2.37 → -16.3, -14.3, -30.6, -36.6pp. High vol (>16.87) → +15.4, +20.9pp at +12h/+24h. bb_width_20 mirrors: narrow bands → -26.7, -29.6pp.",
+    "notes": "Volatility expansion = bullish continuation; compression = bearish trap. Very clean and consistent pattern across both realized_vol and Bollinger band width."
+  },
+  "volume": {
+    "verdict": "weak",
+    "best_node": "volume_ratio_12",
+    "key_finding": "No meaningful edge. Both volume_ratio_12 and volume_ratio_24 produce no rows ≥10pp with n≥50.",
+    "notes": "Contrasts with BTC daily where volume_ratio_14 showed +16pp at +3d. NASDAQ hourly volume spikes do not predict direction."
+  },
+  "vix": {
+    "verdict": "strong",
+    "best_node": "vix_ret_1",
+    "key_finding": "vix_ret_1 above >0.9% (n=862) → -11.5, -6.7, -5.5pp at +3h/+6h/+12h (huge sample, immediate NASDAQ drop). vix_level >30 → +12.9, +19.9pp at +12h/+24h (recovery). vix_ret_5 below → +9.8, +11.8pp at +3h/+6h.",
+    "notes": "VIX is the clearest leading indicator: hourly VIX spike = immediate NASDAQ bearish; elevated VIX (>30) = longer-term bullish recovery. vix_ma_ratio_20 below captures short-term bullish when VIX below MA."
+  },
+  "treasury": {
+    "verdict": "moderate",
+    "best_node": "tnx_level",
+    "key_finding": "tnx_level <3.73 → +21.6, +19.8, +37.2pp at +6h/+12h/+24h (regime signal: low-rate era). tnx_level >4.59 → -11.3pp at +12h. tnx_ma_ratio_20 rising → +17.2, +22.8pp (rates above MA = bullish momentum).",
+    "notes": "Captures macro regime (low vs high rates 2024-present). tnx_ret signals are noisy — short-term rate moves don't cleanly predict NASDAQ hourly. Regime-dependent: this data covers only 2024-07 to present."
+  },
+  "time_of_day": {
+    "verdict": "weak",
+    "best_node": "time_of_day",
+    "key_finding": "No meaningful edge. Hour of day (ET) does not predict NASDAQ direction above 10pp threshold.",
+    "notes": "p2→p98 range covers 9am–3pm ET (market hours). No intraday session patterns found."
+  },
+  "day_of_week": {
+    "verdict": "weak",
+    "best_node": "day_of_week",
+    "key_finding": "No meaningful edge. Day of week (Mon=0 to Fri=4) does not predict NASDAQ direction above 10pp threshold.",
+    "notes": "Calendar effects are not present in this dataset's short window (2024-07 to present)."
+  }
+}
