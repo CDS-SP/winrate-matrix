@@ -1,0 +1,74 @@
+{
+  "rsi": {
+    "verdict": "strong",
+    "best_node": "rsi_18",
+    "key_finding": "RSI > 87 → +20pp at +7d; deep oversold bounces short-term then reverses at +14d",
+    "notes": "rsi_divergence_7_14 shows strong mean-reversion: fast >> slow → -15pp at +3d, fast << slow → +13pp at +3d"
+  },
+  "williams_r": {
+    "verdict": "moderate",
+    "best_node": "wr_21",
+    "key_finding": "Extreme overbought → +15pp at +14d; wr_spread_7_14 mirrors RSI divergence pattern",
+    "notes": "Signal character similar to RSI; moderate incremental value"
+  },
+  "roc": {
+    "verdict": "strong",
+    "best_node": "roc_7",
+    "key_finding": "ROC_7 > 0.11 → +10pp at +7d; roc_spread_5_14 catch-up gap → +8pp at +7d",
+    "notes": "Clean momentum continuation; extreme large moves reverse at +3d then resume at +14d"
+  },
+  "stoch": {
+    "verdict": "redundant",
+    "best_node": "stoch_14",
+    "key_finding": "Results mirror WR/RSI — mathematically similar concept",
+    "notes": "No incremental value over RSI or Williams %R"
+  },
+  "macd": {
+    "verdict": "strong",
+    "best_node": "macd_histogram_12_26",
+    "key_finding": "Extreme negative histogram → +11pp at +3d; extreme positive MACD → reversal -12pp",
+    "notes": "Dual character: moderate MACD = continuation, extreme MACD = reversal"
+  },
+  "ma": {
+    "verdict": "strong",
+    "best_node": "ma_ratio_200",
+    "key_finding": "Price > 130% above 200MA → -26pp at +14d; near-high extension consistently bullish at shorter periods",
+    "notes": "ma_cross_50_200 extreme golden cross → -24pp at +14d; late bull market warning"
+  },
+  "volatility": {
+    "verdict": "strong",
+    "best_node": "realized_vol_7",
+    "key_finding": "Realized vol < 10 (compression) → +24pp at +14d; bb_pct_20 breakout → +7-20pp",
+    "notes": "vol_ratio_7_21 < 0.40 also strong; high vol > 63 consistently bearish at +14d"
+  },
+  "volume": {
+    "verdict": "strong",
+    "best_node": "volume_ratio_14",
+    "key_finding": "volume_ratio_14 > 1.83 → +16pp at +3d; volume_ratio_7 > 1.47 → +12pp at +3d",
+    "notes": "Short-horizon signal only — edge fades significantly by +14d"
+  },
+  "drawdown": {
+    "verdict": "moderate",
+    "best_node": "drawdown_recovery_7_90",
+    "key_finding": "Extreme recovery ratio (0.43+) → +18pp at +14d; near 30d high → +5-8pp at +7/14d",
+    "notes": "Signals are real but require extreme conditions to trigger"
+  },
+  "dxy": {
+    "verdict": "moderate",
+    "best_node": "dxy_ret_20",
+    "key_finding": "DXY +3% over 20d → -15pp BTC at +7d; DXY below 50MA → +3-6pp BTC at +14d",
+    "notes": "Shorter DXY lookbacks (1d, 5d) too noisy; 20d return is the only reliable signal"
+  },
+  "on_chain": {
+    "verdict": "strong",
+    "best_node": "mvrv",
+    "key_finding": "MVRV < 0.79 → +35pp at +14d; MVRV > 3.3 → -14pp at +14d",
+    "notes": "Strongest absolute edge in entire universe; adr_act_ma_ratio spike → +12-18pp; hash rate below MA → -16pp at +3d"
+  },
+  "cycle": {
+    "verdict": "moderate",
+    "best_node": "cycle_phase",
+    "key_finding": "Phase 0-0.05 (0-7 weeks post-halving) → -13pp at +7d; phase 0.15-0.40 (4-18 months post-halving) → +11pp at +14d",
+    "notes": "Best used as a regime overlay to condition other signals, not as standalone"
+  }
+}
