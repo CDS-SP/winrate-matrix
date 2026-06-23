@@ -19,7 +19,7 @@
       14
     ],
     "n_thresholds": 30,
-    "workspace": "btc_daily",
+    "workspace": "btc_daily_14days",
     "asset": {
       "provider": "yfinance",
       "ticker": "BTC-USD",
@@ -41,7 +41,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "rsi_14",
@@ -55,7 +55,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "rsi_21",
@@ -69,7 +69,50 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
+      },
+      {
+        "id": "rsi_10",
+        "family": "rsi",
+        "category": "price_momentum",
+        "feature": "rsi",
+        "params": {
+          "period": 10
+        },
+        "data": [
+          "ohlcv"
+        ],
+        "derived_from": "rsi_14",
+        "status": "tested"
+      },
+      {
+        "id": "rsi_18",
+        "family": "rsi",
+        "category": "price_momentum",
+        "feature": "rsi",
+        "params": {
+          "period": 18
+        },
+        "data": [
+          "ohlcv"
+        ],
+        "derived_from": "rsi_14",
+        "status": "tested"
+      },
+      {
+        "id": "rsi_divergence_7_14",
+        "family": "rsi",
+        "category": "price_momentum",
+        "feature": "rsi_spread",
+        "params": {
+          "fast": 7,
+          "slow": 14
+        },
+        "data": [
+          "ohlcv"
+        ],
+        "derived_from": "rsi_7",
+        "status": "tested"
       }
     ],
     "williams_r": [
@@ -85,7 +128,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "wr_14",
@@ -99,7 +142,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "wr_21",
@@ -113,7 +156,22 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
+      },
+      {
+        "id": "wr_spread_7_14",
+        "family": "williams_r",
+        "category": "price_momentum",
+        "feature": "wr_spread",
+        "params": {
+          "fast": 7,
+          "slow": 14
+        },
+        "data": [
+          "ohlcv"
+        ],
+        "derived_from": "wr_14",
+        "status": "tested"
       }
     ],
     "roc": [
@@ -129,7 +187,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "roc_5",
@@ -143,7 +201,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "roc_7",
@@ -157,7 +215,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "roc_14",
@@ -171,7 +229,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "roc_spread_5_14",
@@ -186,7 +244,7 @@
           "ohlcv"
         ],
         "derived_from": "roc_5",
-        "status": "pending"
+        "status": "tested"
       }
     ],
     "stoch": [
@@ -202,7 +260,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "stoch_7",
@@ -216,7 +274,22 @@
           "ohlcv"
         ],
         "derived_from": "stoch_14",
-        "status": "pending"
+        "status": "tested"
+      },
+      {
+        "id": "stoch_d_14",
+        "family": "stoch",
+        "category": "price_momentum",
+        "feature": "stoch_d",
+        "params": {
+          "k_period": 14,
+          "d_period": 3
+        },
+        "data": [
+          "ohlcv"
+        ],
+        "derived_from": "stoch_14",
+        "status": "tested"
       }
     ],
     "macd": [
@@ -233,7 +306,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "macd_9_21",
@@ -248,7 +321,7 @@
           "ohlcv"
         ],
         "derived_from": "macd_12_26",
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "macd_histogram_12_26",
@@ -264,7 +337,7 @@
           "ohlcv"
         ],
         "derived_from": "macd_12_26",
-        "status": "pending"
+        "status": "tested"
       }
     ],
     "ma": [
@@ -280,7 +353,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "ma_ratio_14",
@@ -294,7 +367,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "ma_ratio_21",
@@ -308,7 +381,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "ma_ratio_50",
@@ -322,7 +395,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "ma_ratio_100",
@@ -336,7 +409,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "ma_ratio_200",
@@ -350,7 +423,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "ma_cross_7_21",
@@ -365,7 +438,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "ma_cross_14_50",
@@ -380,7 +453,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "ma_cross_50_200",
@@ -395,7 +468,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "ma_ratio_30",
@@ -409,7 +482,7 @@
           "ohlcv"
         ],
         "derived_from": "ma_ratio_21",
-        "status": "pending"
+        "status": "tested"
       }
     ],
     "volatility": [
@@ -425,7 +498,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "realized_vol_14",
@@ -439,7 +512,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "realized_vol_21",
@@ -453,7 +526,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "realized_vol_30",
@@ -467,7 +540,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "atr_14",
@@ -481,7 +554,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "bb_pct_14",
@@ -495,7 +568,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "bb_pct_20",
@@ -509,7 +582,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "bb_width_20",
@@ -523,7 +596,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "vol_ratio_7_21",
@@ -538,7 +611,7 @@
           "ohlcv"
         ],
         "derived_from": "realized_vol_21",
-        "status": "pending"
+        "status": "tested"
       }
     ],
     "volume": [
@@ -554,7 +627,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "volume_ratio_14",
@@ -568,7 +641,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "volume_ratio_30",
@@ -582,7 +655,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       }
     ],
     "drawdown": [
@@ -598,7 +671,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "drawdown_14",
@@ -612,7 +685,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "drawdown_30",
@@ -626,7 +699,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "drawdown_60",
@@ -640,7 +713,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "drawdown_90",
@@ -654,7 +727,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "drawdown_120",
@@ -668,7 +741,7 @@
           "ohlcv"
         ],
         "derived_from": "drawdown_90",
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "drawdown_recovery_7_90",
@@ -683,7 +756,7 @@
           "ohlcv"
         ],
         "derived_from": "drawdown_90",
-        "status": "pending"
+        "status": "tested"
       }
     ],
     "dxy": [
@@ -700,7 +773,7 @@
           "dxy"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "dxy_ret_5",
@@ -715,7 +788,7 @@
           "dxy"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "dxy_ret_10",
@@ -730,7 +803,7 @@
           "dxy"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "dxy_ret_20",
@@ -745,7 +818,7 @@
           "dxy"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "dxy_ma_ratio_20",
@@ -760,7 +833,7 @@
           "dxy"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "dxy_ma_ratio_10",
@@ -775,7 +848,7 @@
           "dxy"
         ],
         "derived_from": "dxy_ma_ratio_20",
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "dxy_ma_ratio_50",
@@ -790,7 +863,7 @@
           "dxy"
         ],
         "derived_from": "dxy_ma_ratio_20",
-        "status": "pending"
+        "status": "tested"
       }
     ],
     "on_chain": [
@@ -805,7 +878,7 @@
           "coinmetrics"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "hash_rate_ma_ratio_30",
@@ -820,7 +893,7 @@
           "coinmetrics"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "adr_act_ma_ratio_30",
@@ -835,7 +908,7 @@
           "coinmetrics"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "adr_act_ma_ratio_7",
@@ -850,7 +923,7 @@
           "coinmetrics"
         ],
         "derived_from": "adr_act_ma_ratio_30",
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "hash_rate_ma_ratio_90",
@@ -865,7 +938,7 @@
           "coinmetrics"
         ],
         "derived_from": "hash_rate_ma_ratio_30",
-        "status": "pending"
+        "status": "tested"
       }
     ],
     "cycle": [
@@ -879,7 +952,7 @@
           "ohlcv"
         ],
         "derived_from": null,
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "cycle_phase",
@@ -891,7 +964,7 @@
           "ohlcv"
         ],
         "derived_from": "days_since_halving",
-        "status": "pending"
+        "status": "tested"
       },
       {
         "id": "days_to_halving",
@@ -903,7 +976,7 @@
           "ohlcv"
         ],
         "derived_from": "days_since_halving",
-        "status": "pending"
+        "status": "tested"
       }
     ]
   }
