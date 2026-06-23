@@ -1,0 +1,472 @@
+{
+  "meta": {
+    "created": "2026-06-23",
+    "description": "NASDAQ hourly feature universe (+1h to +24h, covering one full trading day)",
+    "workspace": "nasdaq_hourly_24hrs",
+    "asset": {
+      "provider": "yfinance",
+      "ticker": "^IXIC",
+      "interval": "1h"
+    },
+    "horizons": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "start_date": "2024-07-01",
+    "n_thresholds": 30
+  },
+  "families": {
+    "rsi": [
+      {
+        "id": "rsi_7",
+        "family": "rsi",
+        "category": "price_momentum",
+        "feature": "rsi",
+        "params": {
+          "period": 7
+        },
+        "data": [
+          "ohlcv"
+        ],
+        "derived_from": null,
+        "status": "tested"
+      },
+      {
+        "id": "rsi_14",
+        "family": "rsi",
+        "category": "price_momentum",
+        "feature": "rsi",
+        "params": {
+          "period": 14
+        },
+        "data": [
+          "ohlcv"
+        ],
+        "derived_from": null,
+        "status": "pending"
+      },
+      {
+        "id": "rsi_21",
+        "family": "rsi",
+        "category": "price_momentum",
+        "feature": "rsi",
+        "params": {
+          "period": 21
+        },
+        "data": [
+          "ohlcv"
+        ],
+        "derived_from": null,
+        "status": "pending"
+      }
+    ],
+    "ma": [
+      {
+        "id": "ma_ratio_10",
+        "family": "ma",
+        "category": "trend",
+        "feature": "ma_ratio",
+        "params": {
+          "period": 10
+        },
+        "data": [
+          "ohlcv"
+        ],
+        "derived_from": null,
+        "status": "pending"
+      },
+      {
+        "id": "ma_ratio_20",
+        "family": "ma",
+        "category": "trend",
+        "feature": "ma_ratio",
+        "params": {
+          "period": 20
+        },
+        "data": [
+          "ohlcv"
+        ],
+        "derived_from": null,
+        "status": "pending"
+      },
+      {
+        "id": "ma_ratio_50",
+        "family": "ma",
+        "category": "trend",
+        "feature": "ma_ratio",
+        "params": {
+          "period": 50
+        },
+        "data": [
+          "ohlcv"
+        ],
+        "derived_from": null,
+        "status": "pending"
+      }
+    ],
+    "macd": [
+      {
+        "id": "macd_6_13",
+        "family": "macd",
+        "category": "trend_momentum",
+        "feature": "macd",
+        "params": {
+          "fast": 6,
+          "slow": 13
+        },
+        "data": [
+          "ohlcv"
+        ],
+        "derived_from": null,
+        "status": "pending"
+      },
+      {
+        "id": "macd_12_26",
+        "family": "macd",
+        "category": "trend_momentum",
+        "feature": "macd",
+        "params": {
+          "fast": 12,
+          "slow": 26
+        },
+        "data": [
+          "ohlcv"
+        ],
+        "derived_from": null,
+        "status": "pending"
+      },
+      {
+        "id": "macd_histogram_12_26",
+        "family": "macd",
+        "category": "trend_momentum",
+        "feature": "macd_histogram",
+        "params": {
+          "fast": 12,
+          "slow": 26,
+          "signal": 9
+        },
+        "data": [
+          "ohlcv"
+        ],
+        "derived_from": null,
+        "status": "pending"
+      }
+    ],
+    "roc": [
+      {
+        "id": "roc_1",
+        "family": "roc",
+        "category": "momentum",
+        "feature": "roc",
+        "params": {
+          "period": 1
+        },
+        "data": [
+          "ohlcv"
+        ],
+        "derived_from": null,
+        "status": "pending"
+      },
+      {
+        "id": "roc_3",
+        "family": "roc",
+        "category": "momentum",
+        "feature": "roc",
+        "params": {
+          "period": 3
+        },
+        "data": [
+          "ohlcv"
+        ],
+        "derived_from": null,
+        "status": "pending"
+      },
+      {
+        "id": "roc_6",
+        "family": "roc",
+        "category": "momentum",
+        "feature": "roc",
+        "params": {
+          "period": 6
+        },
+        "data": [
+          "ohlcv"
+        ],
+        "derived_from": null,
+        "status": "pending"
+      },
+      {
+        "id": "roc_12",
+        "family": "roc",
+        "category": "momentum",
+        "feature": "roc",
+        "params": {
+          "period": 12
+        },
+        "data": [
+          "ohlcv"
+        ],
+        "derived_from": null,
+        "status": "pending"
+      }
+    ],
+    "volatility": [
+      {
+        "id": "realized_vol_12",
+        "family": "volatility",
+        "category": "volatility",
+        "feature": "realized_vol",
+        "params": {
+          "period": 12
+        },
+        "data": [
+          "ohlcv"
+        ],
+        "derived_from": null,
+        "status": "pending"
+      },
+      {
+        "id": "realized_vol_24",
+        "family": "volatility",
+        "category": "volatility",
+        "feature": "realized_vol",
+        "params": {
+          "period": 24
+        },
+        "data": [
+          "ohlcv"
+        ],
+        "derived_from": null,
+        "status": "pending"
+      },
+      {
+        "id": "bb_pct_20",
+        "family": "volatility",
+        "category": "volatility",
+        "feature": "bb_pct",
+        "params": {
+          "period": 20
+        },
+        "data": [
+          "ohlcv"
+        ],
+        "derived_from": null,
+        "status": "pending"
+      },
+      {
+        "id": "bb_width_20",
+        "family": "volatility",
+        "category": "volatility",
+        "feature": "bb_width",
+        "params": {
+          "period": 20
+        },
+        "data": [
+          "ohlcv"
+        ],
+        "derived_from": null,
+        "status": "pending"
+      }
+    ],
+    "volume": [
+      {
+        "id": "volume_ratio_12",
+        "family": "volume",
+        "category": "volume",
+        "feature": "volume_ratio",
+        "params": {
+          "period": 12
+        },
+        "data": [
+          "ohlcv"
+        ],
+        "derived_from": null,
+        "status": "pending"
+      },
+      {
+        "id": "volume_ratio_24",
+        "family": "volume",
+        "category": "volume",
+        "feature": "volume_ratio",
+        "params": {
+          "period": 24
+        },
+        "data": [
+          "ohlcv"
+        ],
+        "derived_from": null,
+        "status": "pending"
+      }
+    ],
+    "vix": [
+      {
+        "id": "vix_level",
+        "family": "vix",
+        "category": "cross_asset",
+        "feature": "vix_level",
+        "params": {},
+        "data": [
+          "ohlcv",
+          "vix"
+        ],
+        "derived_from": null,
+        "status": "tested"
+      },
+      {
+        "id": "vix_ma_ratio_20",
+        "family": "vix",
+        "category": "cross_asset",
+        "feature": "vix_ma_ratio",
+        "params": {
+          "period": 20
+        },
+        "data": [
+          "ohlcv",
+          "vix"
+        ],
+        "derived_from": null,
+        "status": "pending"
+      },
+      {
+        "id": "vix_ret_1",
+        "family": "vix",
+        "category": "cross_asset",
+        "feature": "vix_ret",
+        "params": {
+          "period": 1
+        },
+        "data": [
+          "ohlcv",
+          "vix"
+        ],
+        "derived_from": null,
+        "status": "pending"
+      },
+      {
+        "id": "vix_ret_5",
+        "family": "vix",
+        "category": "cross_asset",
+        "feature": "vix_ret",
+        "params": {
+          "period": 5
+        },
+        "data": [
+          "ohlcv",
+          "vix"
+        ],
+        "derived_from": null,
+        "status": "pending"
+      }
+    ],
+    "treasury": [
+      {
+        "id": "tnx_level",
+        "family": "treasury",
+        "category": "cross_asset",
+        "feature": "tnx_level",
+        "params": {},
+        "data": [
+          "ohlcv",
+          "treasury"
+        ],
+        "derived_from": null,
+        "status": "tested"
+      },
+      {
+        "id": "tnx_ma_ratio_20",
+        "family": "treasury",
+        "category": "cross_asset",
+        "feature": "tnx_ma_ratio",
+        "params": {
+          "period": 20
+        },
+        "data": [
+          "ohlcv",
+          "treasury"
+        ],
+        "derived_from": null,
+        "status": "pending"
+      },
+      {
+        "id": "tnx_ret_1",
+        "family": "treasury",
+        "category": "cross_asset",
+        "feature": "tnx_ret",
+        "params": {
+          "period": 1
+        },
+        "data": [
+          "ohlcv",
+          "treasury"
+        ],
+        "derived_from": null,
+        "status": "pending"
+      },
+      {
+        "id": "tnx_ret_5",
+        "family": "treasury",
+        "category": "cross_asset",
+        "feature": "tnx_ret",
+        "params": {
+          "period": 5
+        },
+        "data": [
+          "ohlcv",
+          "treasury"
+        ],
+        "derived_from": null,
+        "status": "pending"
+      }
+    ],
+    "time_of_day": [
+      {
+        "id": "time_of_day",
+        "family": "time_of_day",
+        "category": "temporal",
+        "feature": "time_of_day",
+        "params": {},
+        "data": [
+          "ohlcv"
+        ],
+        "derived_from": null,
+        "status": "tested"
+      }
+    ],
+    "day_of_week": [
+      {
+        "id": "day_of_week",
+        "family": "day_of_week",
+        "category": "temporal",
+        "feature": "day_of_week",
+        "params": {},
+        "data": [
+          "ohlcv"
+        ],
+        "derived_from": null,
+        "status": "tested"
+      }
+    ]
+  }
+}
