@@ -35,7 +35,12 @@
       24
     ],
     "start_date": "2024-07-01",
-    "n_thresholds": 30
+    "n_thresholds": 30,
+    "display_horizons": [3, 6, 12, 24],
+    "sample_freq": "W-MON",
+    "min_obs": 100,
+    "read_min_dev": 10.0,
+    "read_min_n": 50
   },
   "families": {
     "rsi": [

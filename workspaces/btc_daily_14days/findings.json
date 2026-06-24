@@ -1,74 +1,616 @@
 {
-  "rsi": {
-    "verdict": "strong",
-    "best_node": "rsi_18",
-    "key_finding": "RSI > 87 → +20pp at +7d; deep oversold bounces short-term then reverses at +14d",
-    "notes": "rsi_divergence_7_14 shows strong mean-reversion: fast >> slow → -15pp at +3d, fast << slow → +13pp at +3d"
-  },
-  "williams_r": {
-    "verdict": "moderate",
-    "best_node": "wr_21",
-    "key_finding": "Extreme overbought → +15pp at +14d; wr_spread_7_14 mirrors RSI divergence pattern",
-    "notes": "Signal character similar to RSI; moderate incremental value"
-  },
-  "roc": {
-    "verdict": "strong",
-    "best_node": "roc_7",
-    "key_finding": "ROC_7 > 0.11 → +10pp at +7d; roc_spread_5_14 catch-up gap → +8pp at +7d",
-    "notes": "Clean momentum continuation; extreme large moves reverse at +3d then resume at +14d"
-  },
-  "stoch": {
-    "verdict": "redundant",
-    "best_node": "stoch_14",
-    "key_finding": "Results mirror WR/RSI — mathematically similar concept",
-    "notes": "No incremental value over RSI or Williams %R"
-  },
-  "macd": {
-    "verdict": "strong",
-    "best_node": "macd_histogram_12_26",
-    "key_finding": "Extreme negative histogram → +11pp at +3d; extreme positive MACD → reversal -12pp",
-    "notes": "Dual character: moderate MACD = continuation, extreme MACD = reversal"
-  },
-  "ma": {
-    "verdict": "strong",
-    "best_node": "ma_ratio_200",
-    "key_finding": "Price > 130% above 200MA → -26pp at +14d; near-high extension consistently bullish at shorter periods",
-    "notes": "ma_cross_50_200 extreme golden cross → -24pp at +14d; late bull market warning"
-  },
-  "volatility": {
-    "verdict": "strong",
-    "best_node": "realized_vol_7",
-    "key_finding": "Realized vol < 10 (compression) → +24pp at +14d; bb_pct_20 breakout → +7-20pp",
-    "notes": "vol_ratio_7_21 < 0.40 also strong; high vol > 63 consistently bearish at +14d"
-  },
-  "volume": {
-    "verdict": "strong",
-    "best_node": "volume_ratio_14",
-    "key_finding": "volume_ratio_14 > 1.83 → +16pp at +3d; volume_ratio_7 > 1.47 → +12pp at +3d",
-    "notes": "Short-horizon signal only — edge fades significantly by +14d"
-  },
-  "drawdown": {
-    "verdict": "moderate",
-    "best_node": "drawdown_recovery_7_90",
-    "key_finding": "Extreme recovery ratio (0.43+) → +18pp at +14d; near 30d high → +5-8pp at +7/14d",
-    "notes": "Signals are real but require extreme conditions to trigger"
-  },
-  "dxy": {
-    "verdict": "moderate",
-    "best_node": "dxy_ret_20",
-    "key_finding": "DXY +3% over 20d → -15pp BTC at +7d; DXY below 50MA → +3-6pp BTC at +14d",
-    "notes": "Shorter DXY lookbacks (1d, 5d) too noisy; 20d return is the only reliable signal"
-  },
-  "on_chain": {
-    "verdict": "strong",
-    "best_node": "mvrv",
-    "key_finding": "MVRV < 0.79 → +35pp at +14d; MVRV > 3.3 → -14pp at +14d",
-    "notes": "Strongest absolute edge in entire universe; adr_act_ma_ratio spike → +12-18pp; hash rate below MA → -16pp at +3d"
-  },
-  "cycle": {
-    "verdict": "moderate",
-    "best_node": "cycle_phase",
-    "key_finding": "Phase 0-0.05 (0-7 weeks post-halving) → -13pp at +7d; phase 0.15-0.40 (4-18 months post-halving) → +11pp at +14d",
-    "notes": "Best used as a regime overlay to condition other signals, not as standalone"
+  "workspace": "btc_daily_14days",
+  "generated": "2026-06-24T07:17:46.706095+00:00",
+  "display_horizons": [
+    "+3d",
+    "+7d",
+    "+14d"
+  ],
+  "families": {
+    "cycle": {
+      "best_node": "days_since_halving",
+      "peak_signal": 22.8,
+      "verdict": "edge",
+      "conditions": [
+        {
+          "direction": "above",
+          "condition": "X > 1238",
+          "n": 444,
+          "deviations": {
+            "+3d": 6.32,
+            "+7d": 7.25,
+            "+14d": 11.82
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < 74.4",
+          "n": 225,
+          "deviations": {
+            "+3d": -7.38,
+            "+7d": -13.35,
+            "+14d": -8.42
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < 214.1",
+          "n": 645,
+          "deviations": {
+            "+3d": 3.5,
+            "+7d": 4.7,
+            "+14d": 10.55
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < 260.7",
+          "n": 783,
+          "deviations": {
+            "+3d": 4.01,
+            "+7d": 4.58,
+            "+14d": 10.11
+          }
+        }
+      ],
+      "notes": "Phase 0-0.05 (0-7 weeks post-halving) \u2192 -13pp at +7d; phase 0.15-0.40 (4-18 months post-halving) \u2192 +11pp at +14d. Best used as a regime overlay, not standalone."
+    },
+    "drawdown": {
+      "best_node": "drawdown_90",
+      "peak_signal": 26.06,
+      "verdict": "no_edge",
+      "conditions": [],
+      "notes": "Extreme recovery ratio (0.43+) \u2192 +18pp at +14d; near 30d high \u2192 +5-8pp at +7/14d. Signals are real but require extreme conditions to trigger."
+    },
+    "dxy": {
+      "best_node": "dxy_ma_ratio_50",
+      "peak_signal": 19.2,
+      "verdict": "edge",
+      "conditions": [
+        {
+          "direction": "above",
+          "condition": "X > 0.0283",
+          "n": 83,
+          "deviations": {
+            "+3d": -6.29,
+            "+7d": -10.1,
+            "+14d": -4.62
+          }
+        }
+      ],
+      "notes": "DXY +3% over 20d \u2192 -15pp BTC at +7d; DXY below 50MA \u2192 +3-6pp BTC at +14d. Shorter DXY lookbacks (1d, 5d) too noisy; 20d return is the only reliable signal."
+    },
+    "ma": {
+      "best_node": "ma_ratio_100",
+      "peak_signal": 25.96,
+      "verdict": "edge",
+      "conditions": [
+        {
+          "direction": "above",
+          "condition": "X > 0.6145",
+          "n": 138,
+          "deviations": {
+            "+3d": -0.86,
+            "+7d": -8.31,
+            "+14d": -10.05
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 0.6509",
+          "n": 116,
+          "deviations": {
+            "+3d": -0.18,
+            "+7d": -7.27,
+            "+14d": -11.6
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 0.6872",
+          "n": 100,
+          "deviations": {
+            "+3d": 0.51,
+            "+7d": -6.68,
+            "+14d": -14.42
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 0.7236",
+          "n": 82,
+          "deviations": {
+            "+3d": 0.39,
+            "+7d": -10.78,
+            "+14d": -19.84
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < -0.3302",
+          "n": 82,
+          "deviations": {
+            "+3d": 6.49,
+            "+7d": 12.39,
+            "+14d": 14.31
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < -0.2939",
+          "n": 126,
+          "deviations": {
+            "+3d": 6.62,
+            "+7d": 11.98,
+            "+14d": 11.83
+          }
+        }
+      ],
+      "notes": "Price > 130% above 200MA \u2192 -26pp at +14d; near-high extension consistently bullish at shorter periods. ma_cross_50_200 extreme golden cross \u2192 -24pp at +14d; late bull market warning."
+    },
+    "macd": {
+      "best_node": "macd_9_21",
+      "peak_signal": 16.57,
+      "verdict": "edge",
+      "conditions": [
+        {
+          "direction": "above",
+          "condition": "X > 0.08323",
+          "n": 84,
+          "deviations": {
+            "+3d": -9.25,
+            "+7d": -11.83,
+            "+14d": -13.57
+          }
+        }
+      ],
+      "notes": "Extreme negative histogram \u2192 +11pp at +3d; extreme positive MACD \u2192 reversal -12pp. Dual character: moderate MACD = continuation, extreme MACD = reversal."
+    },
+    "on_chain": {
+      "best_node": "mvrv",
+      "peak_signal": 21.08,
+      "verdict": "edge",
+      "conditions": [
+        {
+          "direction": "above",
+          "condition": "X > 3.32",
+          "n": 84,
+          "deviations": {
+            "+3d": 0.28,
+            "+7d": -10.63,
+            "+14d": -13.57
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < 0.7866",
+          "n": 84,
+          "deviations": {
+            "+3d": 13.37,
+            "+7d": 23.89,
+            "+14d": 35.24
+          }
+        }
+      ],
+      "notes": "MVRV < 0.79 \u2192 +35pp at +14d; MVRV > 3.3 \u2192 -14pp at +14d. Strongest absolute edge in entire universe. adr_act_ma_ratio spike \u2192 +12-18pp; hash rate below MA \u2192 -16pp at +3d."
+    },
+    "roc": {
+      "best_node": "roc_5",
+      "peak_signal": 22.46,
+      "verdict": "edge",
+      "conditions": [
+        {
+          "direction": "above",
+          "condition": "X > 0.0995",
+          "n": 429,
+          "deviations": {
+            "+3d": 6.82,
+            "+7d": 8.02,
+            "+14d": 10.94
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 0.1117",
+          "n": 343,
+          "deviations": {
+            "+3d": 7.32,
+            "+7d": 9.17,
+            "+14d": 12.38
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 0.1239",
+          "n": 287,
+          "deviations": {
+            "+3d": 7.19,
+            "+7d": 10.82,
+            "+14d": 13.61
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 0.1361",
+          "n": 241,
+          "deviations": {
+            "+3d": 8.17,
+            "+7d": 12.12,
+            "+14d": 13.7
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 0.1483",
+          "n": 208,
+          "deviations": {
+            "+3d": 7.05,
+            "+7d": 12.63,
+            "+14d": 14.25
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 0.1605",
+          "n": 173,
+          "deviations": {
+            "+3d": 4.47,
+            "+7d": 10.64,
+            "+14d": 12.94
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 0.1727",
+          "n": 134,
+          "deviations": {
+            "+3d": 5.96,
+            "+7d": 11.74,
+            "+14d": 14.47
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 0.1849",
+          "n": 109,
+          "deviations": {
+            "+3d": 3.31,
+            "+7d": 8.62,
+            "+14d": 11.46
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < -0.1446",
+          "n": 110,
+          "deviations": {
+            "+3d": 10.06,
+            "+7d": 2.59,
+            "+14d": 9.03
+          }
+        }
+      ],
+      "notes": "ROC_7 > 0.11 \u2192 +10pp at +7d; roc_spread_5_14 catch-up gap \u2192 +8pp at +7d. Clean momentum continuation; extreme large moves reverse at +3d then resume at +14d."
+    },
+    "rsi": {
+      "best_node": "rsi_divergence_7_14",
+      "peak_signal": 19.11,
+      "verdict": "edge",
+      "conditions": [
+        {
+          "direction": "above",
+          "condition": "X > 28.69",
+          "n": 185,
+          "deviations": {
+            "+3d": -10.28,
+            "+7d": -9.42,
+            "+14d": -7.24
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 31.13",
+          "n": 144,
+          "deviations": {
+            "+3d": -11.53,
+            "+7d": -9.72,
+            "+14d": -2.26
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 33.58",
+          "n": 107,
+          "deviations": {
+            "+3d": -11.63,
+            "+7d": -6.47,
+            "+14d": -0.35
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 36.02",
+          "n": 79,
+          "deviations": {
+            "+3d": -15.2,
+            "+7d": -9.44,
+            "+14d": 1.8
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < -34.88",
+          "n": 84,
+          "deviations": {
+            "+3d": 9.8,
+            "+7d": 2.46,
+            "+14d": 10.24
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < -32.43",
+          "n": 111,
+          "deviations": {
+            "+3d": 13.08,
+            "+7d": 3.88,
+            "+14d": 11.14
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < -29.99",
+          "n": 154,
+          "deviations": {
+            "+3d": 12.4,
+            "+7d": 4.41,
+            "+14d": 9.16
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < -27.54",
+          "n": 217,
+          "deviations": {
+            "+3d": 11.41,
+            "+7d": 5.23,
+            "+14d": 7.63
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < -25.1",
+          "n": 289,
+          "deviations": {
+            "+3d": 10.57,
+            "+7d": 4.83,
+            "+14d": 6.55
+          }
+        }
+      ],
+      "notes": "RSI > 87 \u2192 +20pp at +7d; deep oversold bounces short-term then reverses at +14d. rsi_divergence_7_14: fast >> slow \u2192 -15pp at +3d, fast << slow \u2192 +13pp at +3d."
+    },
+    "stoch": {
+      "best_node": "stoch_d_14",
+      "peak_signal": 13.22,
+      "verdict": "edge",
+      "conditions": [
+        {
+          "direction": "below",
+          "condition": "X < 8.15",
+          "n": 84,
+          "deviations": {
+            "+3d": -10.44,
+            "+7d": -3.49,
+            "+14d": -7.62
+          }
+        }
+      ],
+      "notes": "Results mirror WR/RSI \u2014 mathematically similar concept. No incremental value over RSI or Williams %R."
+    },
+    "volatility": {
+      "best_node": "realized_vol_21",
+      "peak_signal": 25.32,
+      "verdict": "edge",
+      "conditions": [
+        {
+          "direction": "below",
+          "condition": "X < 15.49",
+          "n": 84,
+          "deviations": {
+            "+3d": 10.99,
+            "+7d": 16.75,
+            "+14d": 18.58
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < 18.98",
+          "n": 190,
+          "deviations": {
+            "+3d": 11.3,
+            "+7d": 17.95,
+            "+14d": 19.36
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < 22.47",
+          "n": 387,
+          "deviations": {
+            "+3d": 4.94,
+            "+7d": 11.73,
+            "+14d": 14.12
+          }
+        }
+      ],
+      "notes": "Realized vol < 10 (compression) \u2192 +24pp at +14d; bb_pct_20 breakout \u2192 +7-20pp. vol_ratio_7_21 < 0.40 also strong; high vol > 63 consistently bearish at +14d."
+    },
+    "volume": {
+      "best_node": "volume_ratio_7",
+      "peak_signal": 23.44,
+      "verdict": "edge",
+      "conditions": [
+        {
+          "direction": "above",
+          "condition": "X > 1.473",
+          "n": 257,
+          "deviations": {
+            "+3d": 10.1,
+            "+7d": 11.47,
+            "+14d": 6.22
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 1.517",
+          "n": 227,
+          "deviations": {
+            "+3d": 11.59,
+            "+7d": 12.28,
+            "+14d": 7.01
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 1.561",
+          "n": 189,
+          "deviations": {
+            "+3d": 11.65,
+            "+7d": 11.46,
+            "+14d": 6.01
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 1.605",
+          "n": 157,
+          "deviations": {
+            "+3d": 11.76,
+            "+7d": 9.01,
+            "+14d": 4.72
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 1.649",
+          "n": 133,
+          "deviations": {
+            "+3d": 10.93,
+            "+7d": 8.48,
+            "+14d": 3.73
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 1.692",
+          "n": 116,
+          "deviations": {
+            "+3d": 10.17,
+            "+7d": 8.25,
+            "+14d": 3.06
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 1.736",
+          "n": 100,
+          "deviations": {
+            "+3d": 11.51,
+            "+7d": 9.32,
+            "+14d": 5.58
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 1.78",
+          "n": 84,
+          "deviations": {
+            "+3d": 12.18,
+            "+7d": 8.41,
+            "+14d": 6.67
+          }
+        }
+      ],
+      "notes": "volume_ratio_14 > 1.83 \u2192 +16pp at +3d; volume_ratio_7 > 1.47 \u2192 +12pp at +3d. Short-horizon signal only \u2014 edge fades significantly by +14d."
+    },
+    "williams_r": {
+      "best_node": "wr_spread_7_14",
+      "peak_signal": 13.47,
+      "verdict": "edge",
+      "conditions": [
+        {
+          "direction": "above",
+          "condition": "X > 0.329",
+          "n": 178,
+          "deviations": {
+            "+3d": -11.63,
+            "+7d": -7.43,
+            "+14d": -6.99
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 0.3564",
+          "n": 139,
+          "deviations": {
+            "+3d": -11.83,
+            "+7d": -8.53,
+            "+14d": -4.63
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 0.3838",
+          "n": 108,
+          "deviations": {
+            "+3d": -16.99,
+            "+7d": -11.83,
+            "+14d": -7.35
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 0.4112",
+          "n": 80,
+          "deviations": {
+            "+3d": -16.39,
+            "+7d": -14.21,
+            "+14d": -2.67
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < -0.3834",
+          "n": 84,
+          "deviations": {
+            "+3d": 6.23,
+            "+7d": 19.13,
+            "+14d": 17.38
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < -0.356",
+          "n": 116,
+          "deviations": {
+            "+3d": 5.0,
+            "+7d": 16.87,
+            "+14d": 13.4
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < -0.3286",
+          "n": 146,
+          "deviations": {
+            "+3d": 5.79,
+            "+7d": 11.76,
+            "+14d": 9.33
+          }
+        }
+      ],
+      "notes": "Extreme overbought \u2192 +15pp at +14d; wr_spread_7_14 mirrors RSI divergence. Signal character similar to RSI; moderate incremental value."
+    }
   }
 }

@@ -25,7 +25,12 @@
       "ticker": "BTC-USD",
       "interval": "1d"
     },
-    "start_date": "2015-01-01"
+    "start_date": "2015-01-01",
+    "display_horizons": [3, 7, 14],
+    "sample_freq": "MS",
+    "min_obs": 100,
+    "read_min_dev": 10.0,
+    "read_min_n": 50
   },
   "families": {
     "rsi": [

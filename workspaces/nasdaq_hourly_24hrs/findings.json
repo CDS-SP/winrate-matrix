@@ -1,62 +1,606 @@
 {
-  "rsi": {
-    "verdict": "strong",
-    "best_node": "rsi_14",
-    "key_finding": "Overbought (RSI >91.87) → +26pp at +6h; momentum continuation across all horizons. rsi_10 similar. rsi_spread_7_14 weaker.",
-    "notes": "Pure momentum continuation — no mean-reversion. Contrast with BTC daily where RSI shows mixed intraday/longer-term behavior."
-  },
-  "ma": {
-    "verdict": "strong",
-    "best_node": "ma_cross_10_50",
-    "key_finding": "ma_cross_10_50 below zero (price < 10MA < 50MA) → +27pp at +24h. ma_ratio_20 >0.025 → +18.5pp at +24h. All signals show momentum continuation.",
-    "notes": "Price above MA = bullish continuation; below MA = bearish regime but recovers strongly at +24h. ma_ratio_50 weakest."
-  },
-  "macd": {
-    "verdict": "strong",
-    "best_node": "macd_12_26",
-    "key_finding": "macd_12_26 above >0.0112 → +11.2, +20.5, +20.1, +33.0pp (exceptional all-horizons momentum). Below <-0.01187 → recovery: +10.3, +18.7, +27.2pp at +6h/+12h/+24h.",
-    "notes": "macd_6_13 also strong (all 4 horizons ≥10pp). macd_histogram noisier — faster histogram (6/13) shows only +3h bearish spike. The MACD line itself is the signal."
-  },
-  "roc": {
-    "verdict": "weak",
-    "best_node": "roc_6",
-    "key_finding": "roc_6 below <-0.029 → +11.8, +10.0pp at +6h/+12h (borderline consecutive). roc_1 and roc_12 no edge. roc_3 only a single-horizon crash signal.",
-    "notes": "ROC captures some short-horizon recovery from steep drops but not robustly consecutive. MACD and RSI fully dominate momentum space."
-  },
-  "volatility": {
-    "verdict": "strong",
-    "best_node": "realized_vol_24",
-    "key_finding": "Low vol compression is the strongest bearish signal: realized_vol_24 <2.37 → -16.3, -14.3, -30.6, -36.6pp. High vol (>16.87) → +15.4, +20.9pp at +12h/+24h. bb_width_20 mirrors: narrow bands → -26.7, -29.6pp.",
-    "notes": "Volatility expansion = bullish continuation; compression = bearish trap. Very clean and consistent pattern across both realized_vol and Bollinger band width."
-  },
-  "volume": {
-    "verdict": "weak",
-    "best_node": "volume_ratio_12",
-    "key_finding": "No meaningful edge. Both volume_ratio_12 and volume_ratio_24 produce no rows ≥10pp with n≥50.",
-    "notes": "Contrasts with BTC daily where volume_ratio_14 showed +16pp at +3d. NASDAQ hourly volume spikes do not predict direction."
-  },
-  "vix": {
-    "verdict": "strong",
-    "best_node": "vix_ret_1",
-    "key_finding": "vix_ret_1 above >0.9% (n=862) → -11.5, -6.7, -5.5pp at +3h/+6h/+12h (huge sample, immediate NASDAQ drop). vix_level >30 → +12.9, +19.9pp at +12h/+24h (recovery). vix_ret_5 below → +9.8, +11.8pp at +3h/+6h.",
-    "notes": "VIX is the clearest leading indicator: hourly VIX spike = immediate NASDAQ bearish; elevated VIX (>30) = longer-term bullish recovery. vix_ma_ratio_20 below captures short-term bullish when VIX below MA."
-  },
-  "treasury": {
-    "verdict": "moderate",
-    "best_node": "tnx_level",
-    "key_finding": "tnx_level <3.73 → +21.6, +19.8, +37.2pp at +6h/+12h/+24h (regime signal: low-rate era). tnx_level >4.59 → -11.3pp at +12h. tnx_ma_ratio_20 rising → +17.2, +22.8pp (rates above MA = bullish momentum).",
-    "notes": "Captures macro regime (low vs high rates 2024-present). tnx_ret signals are noisy — short-term rate moves don't cleanly predict NASDAQ hourly. Regime-dependent: this data covers only 2024-07 to present."
-  },
-  "time_of_day": {
-    "verdict": "weak",
-    "best_node": "time_of_day",
-    "key_finding": "No meaningful edge. Hour of day (ET) does not predict NASDAQ direction above 10pp threshold.",
-    "notes": "p2→p98 range covers 9am–3pm ET (market hours). No intraday session patterns found."
-  },
-  "day_of_week": {
-    "verdict": "weak",
-    "best_node": "day_of_week",
-    "key_finding": "No meaningful edge. Day of week (Mon=0 to Fri=4) does not predict NASDAQ direction above 10pp threshold.",
-    "notes": "Calendar effects are not present in this dataset's short window (2024-07 to present)."
+  "workspace": "nasdaq_hourly_24hrs",
+  "generated": "2026-06-24T07:17:48.134316+00:00",
+  "display_horizons": [
+    "+3h",
+    "+6h",
+    "+12h",
+    "+24h"
+  ],
+  "families": {
+    "day_of_week": {
+      "best_node": "day_of_week",
+      "peak_signal": 5.41,
+      "verdict": "no_edge",
+      "conditions": [],
+      "notes": "No meaningful edge. Day of week (Mon=0 to Fri=4) does not predict NASDAQ direction above 10pp threshold. Calendar effects are not present in this dataset's short window (2024-07 to present)."
+    },
+    "ma": {
+      "best_node": "ma_cross_10_50",
+      "peak_signal": 23.19,
+      "verdict": "edge",
+      "conditions": [
+        {
+          "direction": "above",
+          "condition": "X > 0.0277",
+          "n": 166,
+          "deviations": {
+            "+3h": 6.63,
+            "+6h": 5.77,
+            "+12h": 8.81,
+            "+24h": 10.15
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 0.02998",
+          "n": 125,
+          "deviations": {
+            "+3h": 7.79,
+            "+6h": 9.32,
+            "+12h": 9.94,
+            "+24h": 15.47
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 0.03226",
+          "n": 100,
+          "deviations": {
+            "+3h": 6.59,
+            "+6h": 7.72,
+            "+12h": 8.94,
+            "+24h": 17.27
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 0.03453",
+          "n": 68,
+          "deviations": {
+            "+3h": -1.0,
+            "+6h": 6.96,
+            "+12h": 2.23,
+            "+24h": 15.27
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < -0.03153",
+          "n": 68,
+          "deviations": {
+            "+3h": 1.94,
+            "+6h": 1.08,
+            "+12h": 12.53,
+            "+24h": 27.04
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < -0.02925",
+          "n": 94,
+          "deviations": {
+            "+3h": 3.1,
+            "+6h": 3.3,
+            "+12h": 5.77,
+            "+24h": 19.0
+          }
+        }
+      ],
+      "notes": "ma_cross_10_50 below zero (price < 10MA < 50MA) \u2192 +27pp at +24h. ma_ratio_20 >0.025 \u2192 +18.5pp at +24h. All signals show momentum continuation. Price above MA = bullish continuation; below MA = bearish regime but recovers strongly at +24h. ma_ratio_50 weakest."
+    },
+    "macd": {
+      "best_node": "macd_6_13",
+      "peak_signal": 21.94,
+      "verdict": "edge",
+      "conditions": [
+        {
+          "direction": "above",
+          "condition": "X > 0.005115",
+          "n": 267,
+          "deviations": {
+            "+3h": 6.76,
+            "+6h": 9.27,
+            "+12h": 11.23,
+            "+24h": 11.44
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 0.005705",
+          "n": 209,
+          "deviations": {
+            "+3h": 7.74,
+            "+6h": 10.71,
+            "+12h": 12.75,
+            "+24h": 12.04
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 0.006294",
+          "n": 165,
+          "deviations": {
+            "+3h": 7.62,
+            "+6h": 10.39,
+            "+12h": 10.42,
+            "+24h": 11.18
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 0.006884",
+          "n": 132,
+          "deviations": {
+            "+3h": 8.98,
+            "+6h": 12.66,
+            "+12h": 10.12,
+            "+24h": 9.97
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 0.007474",
+          "n": 99,
+          "deviations": {
+            "+3h": 10.24,
+            "+6h": 13.42,
+            "+12h": 15.68,
+            "+24h": 17.04
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 0.008064",
+          "n": 69,
+          "deviations": {
+            "+3h": 8.35,
+            "+6h": 11.84,
+            "+12h": 12.95,
+            "+24h": 17.09
+          }
+        }
+      ],
+      "notes": "macd_12_26 above >0.0112 \u2192 +11.2, +20.5, +20.1, +33.0pp (exceptional all-horizons momentum). Below <-0.01187 \u2192 recovery: +10.3, +18.7, +27.2pp at +6h/+12h/+24h. macd_6_13 also strong (all 4 horizons \u226510pp). macd_histogram noisier \u2014 faster histogram (6/13) shows only +3h bearish spike. The MACD line itself is the signal."
+    },
+    "roc": {
+      "best_node": "roc_6",
+      "peak_signal": 18.0,
+      "verdict": "edge",
+      "conditions": [
+        {
+          "direction": "above",
+          "condition": "X > 0.02425",
+          "n": 82,
+          "deviations": {
+            "+3h": -0.54,
+            "+6h": 2.26,
+            "+12h": 12.67,
+            "+24h": 2.47
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 0.02614",
+          "n": 69,
+          "deviations": {
+            "+3h": -1.79,
+            "+6h": 3.14,
+            "+12h": 14.4,
+            "+24h": 1.14
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < -0.02848",
+          "n": 69,
+          "deviations": {
+            "+3h": 1.11,
+            "+6h": 11.84,
+            "+12h": 10.05,
+            "+24h": 8.39
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < -0.0266",
+          "n": 83,
+          "deviations": {
+            "+3h": -2.4,
+            "+6h": 9.99,
+            "+12h": 10.61,
+            "+24h": 6.54
+          }
+        }
+      ],
+      "notes": "roc_6 below <-0.029 \u2192 +11.8, +10.0pp at +6h/+12h (borderline consecutive). roc_1 and roc_12 no edge. roc_3 only a single-horizon crash signal. ROC captures some short-horizon recovery from steep drops but not robustly consecutive. MACD and RSI fully dominate momentum space."
+    },
+    "rsi": {
+      "best_node": "rsi_21",
+      "peak_signal": 23.33,
+      "verdict": "edge",
+      "conditions": [
+        {
+          "direction": "above",
+          "condition": "X > 78.95",
+          "n": 217,
+          "deviations": {
+            "+3h": 8.18,
+            "+6h": 10.08,
+            "+12h": 6.45,
+            "+24h": 7.09
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 81.21",
+          "n": 175,
+          "deviations": {
+            "+3h": 10.3,
+            "+6h": 12.3,
+            "+12h": 12.22,
+            "+24h": 9.42
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 83.48",
+          "n": 132,
+          "deviations": {
+            "+3h": 7.47,
+            "+6h": 12.66,
+            "+12h": 8.6,
+            "+24h": 3.15
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 85.74",
+          "n": 89,
+          "deviations": {
+            "+3h": 8.63,
+            "+6h": 11.14,
+            "+12h": 4.86,
+            "+24h": 0.95
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 88",
+          "n": 69,
+          "deviations": {
+            "+3h": 9.8,
+            "+6h": 14.74,
+            "+12h": -0.09,
+            "+24h": -4.65
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < 22.39",
+          "n": 69,
+          "deviations": {
+            "+3h": 2.56,
+            "+6h": 7.49,
+            "+12h": 10.05,
+            "+24h": 14.19
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < 24.65",
+          "n": 110,
+          "deviations": {
+            "+3h": -0.87,
+            "+6h": 3.72,
+            "+12h": 11.94,
+            "+24h": 9.37
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < 26.92",
+          "n": 164,
+          "deviations": {
+            "+3h": 0.68,
+            "+6h": 7.75,
+            "+12h": 14.5,
+            "+24h": 10.4
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < 29.18",
+          "n": 238,
+          "deviations": {
+            "+3h": -2.47,
+            "+6h": 4.23,
+            "+12h": 12.11,
+            "+24h": 11.7
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < 31.44",
+          "n": 318,
+          "deviations": {
+            "+3h": -4.78,
+            "+6h": 0.96,
+            "+12h": 9.86,
+            "+24h": 11.03
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < 33.7",
+          "n": 398,
+          "deviations": {
+            "+3h": -4.54,
+            "+6h": -0.75,
+            "+12h": 6.51,
+            "+24h": 10.12
+          }
+        }
+      ],
+      "notes": "Overbought (RSI >91.87) \u2192 +26pp at +6h; momentum continuation across all horizons. rsi_10 similar. rsi_spread_7_14 weaker. Pure momentum continuation \u2014 no mean-reversion. Contrast with BTC daily where RSI shows mixed intraday/longer-term behavior."
+    },
+    "time_of_day": {
+      "best_node": "time_of_day",
+      "peak_signal": 1.36,
+      "verdict": "no_edge",
+      "conditions": [],
+      "notes": "No meaningful edge. Hour of day (ET) does not predict NASDAQ direction above 10pp threshold. p2\u2192p98 range covers 9am\u20133pm ET (market hours). No intraday session patterns found."
+    },
+    "treasury": {
+      "best_node": "tnx_level",
+      "peak_signal": 29.38,
+      "verdict": "edge",
+      "conditions": [
+        {
+          "direction": "below",
+          "condition": "X < 3.728",
+          "n": 63,
+          "deviations": {
+            "+3h": 12.84,
+            "+6h": 21.5,
+            "+12h": 22.89,
+            "+24h": 38.69
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < 3.759",
+          "n": 112,
+          "deviations": {
+            "+3h": 7.98,
+            "+6h": 8.9,
+            "+12h": 8.9,
+            "+24h": 25.1
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < 3.79",
+          "n": 147,
+          "deviations": {
+            "+3h": 3.77,
+            "+6h": 6.31,
+            "+12h": 6.56,
+            "+24h": 13.74
+          }
+        }
+      ],
+      "notes": "tnx_level <3.73 \u2192 +21.6, +19.8, +37.2pp at +6h/+12h/+24h (regime signal: low-rate era). tnx_level >4.59 \u2192 -11.3pp at +12h. tnx_ma_ratio_20 rising \u2192 +17.2, +22.8pp (rates above MA = bullish momentum). tnx_ret signals are noisy \u2014 short-term rate moves don't cleanly predict NASDAQ hourly. Regime-dependent: this data covers only 2024-07 to present."
+    },
+    "vix": {
+      "best_node": "vix_ma_ratio_20",
+      "peak_signal": 21.86,
+      "verdict": "edge",
+      "conditions": [
+        {
+          "direction": "above",
+          "condition": "X > 0.1677",
+          "n": 96,
+          "deviations": {
+            "+3h": -2.29,
+            "+6h": 5.18,
+            "+12h": 6.52,
+            "+24h": 12.15
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 0.1797",
+          "n": 82,
+          "deviations": {
+            "+3h": -4.19,
+            "+6h": 4.7,
+            "+12h": 6.57,
+            "+24h": 12.23
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 0.1918",
+          "n": 79,
+          "deviations": {
+            "+3h": -3.51,
+            "+6h": 4.48,
+            "+12h": 6.5,
+            "+24h": 12.43
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 0.2038",
+          "n": 69,
+          "deviations": {
+            "+3h": -3.24,
+            "+6h": 3.14,
+            "+12h": 4.26,
+            "+24h": 11.29
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < -0.1458",
+          "n": 69,
+          "deviations": {
+            "+3h": 11.25,
+            "+6h": 0.25,
+            "+12h": -7.34,
+            "+24h": -3.2
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < -0.1337",
+          "n": 99,
+          "deviations": {
+            "+3h": 14.28,
+            "+6h": 3.32,
+            "+12h": -3.52,
+            "+24h": -0.13
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < -0.1217",
+          "n": 152,
+          "deviations": {
+            "+3h": 10.38,
+            "+6h": 6.22,
+            "+12h": 4.44,
+            "+24h": 8.04
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < -0.1096",
+          "n": 187,
+          "deviations": {
+            "+3h": 12.5,
+            "+6h": 8.43,
+            "+12h": 7.71,
+            "+24h": 10.86
+          }
+        }
+      ],
+      "notes": "vix_ret_1 above >0.9% (n=862) \u2192 -11.5, -6.7, -5.5pp at +3h/+6h/+12h (huge sample, immediate NASDAQ drop). vix_level >30 \u2192 +12.9, +19.9pp at +12h/+24h (recovery). vix_ret_5 below \u2192 +9.8, +11.8pp at +3h/+6h. VIX is the clearest leading indicator: hourly VIX spike = immediate NASDAQ bearish; elevated VIX (>30) = longer-term bullish recovery."
+    },
+    "volatility": {
+      "best_node": "bb_width_20",
+      "peak_signal": 29.06,
+      "verdict": "edge",
+      "conditions": [
+        {
+          "direction": "above",
+          "condition": "X > 0.07041",
+          "n": 137,
+          "deviations": {
+            "+3h": -0.67,
+            "+6h": 4.31,
+            "+12h": 9.82,
+            "+24h": 10.35
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 0.07303",
+          "n": 113,
+          "deviations": {
+            "+3h": 1.22,
+            "+6h": 5.67,
+            "+12h": 12.73,
+            "+24h": 11.96
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 0.07565",
+          "n": 97,
+          "deviations": {
+            "+3h": 0.26,
+            "+6h": 7.64,
+            "+12h": 15.13,
+            "+24h": 16.56
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 0.07827",
+          "n": 83,
+          "deviations": {
+            "+3h": -1.2,
+            "+6h": 6.38,
+            "+12h": 13.02,
+            "+24h": 21.0
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 0.08089",
+          "n": 76,
+          "deviations": {
+            "+3h": -0.15,
+            "+6h": 6.88,
+            "+12h": 14.31,
+            "+24h": 21.85
+          }
+        },
+        {
+          "direction": "above",
+          "condition": "X > 0.08351",
+          "n": 69,
+          "deviations": {
+            "+3h": 1.11,
+            "+6h": 7.49,
+            "+12h": 12.95,
+            "+24h": 21.43
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < 0.007494",
+          "n": 69,
+          "deviations": {
+            "+3h": -6.14,
+            "+6h": 0.25,
+            "+12h": -23.28,
+            "+24h": -45.23
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < 0.01012",
+          "n": 159,
+          "deviations": {
+            "+3h": -5.73,
+            "+6h": -9.73,
+            "+12h": -26.62,
+            "+24h": -29.54
+          }
+        },
+        {
+          "direction": "below",
+          "condition": "X < 0.01274",
+          "n": 343,
+          "deviations": {
+            "+3h": -4.39,
+            "+6h": -7.3,
+            "+12h": -13.46,
+            "+24h": -19.78
+          }
+        }
+      ],
+      "notes": "Low vol compression is the strongest bearish signal: realized_vol_24 <2.37 \u2192 -16.3, -14.3, -30.6, -36.6pp. High vol (>16.87) \u2192 +15.4, +20.9pp at +12h/+24h. bb_width_20 mirrors: narrow bands \u2192 -26.7, -29.6pp. Volatility expansion = bullish continuation; compression = bearish trap."
+    },
+    "volume": {
+      "best_node": "volume_ratio_24",
+      "peak_signal": 15.88,
+      "verdict": "no_edge",
+      "conditions": [],
+      "notes": "No meaningful edge. Both volume_ratio_12 and volume_ratio_24 produce no rows \u226510pp with n\u226550. Contrasts with BTC daily where volume_ratio_14 showed +16pp at +3d. NASDAQ hourly volume spikes do not predict direction."
+    }
   }
 }
